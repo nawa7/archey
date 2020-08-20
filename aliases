@@ -1,0 +1,26 @@
+
+
+# ------------ My Aliases ------------ #
+#				       #
+# ---------- Pacman Commands --------- #
+
+alias install='sudo pacman -S'
+alias search='sudo pacman -Ss'
+alias update='sudo pacman -Syy'
+alias upgrade='sudo pacman -Syu'
+
+# ----------- System Status ---------- #
+
+alias battery='echo "Battery Charge: $(cat /sys/class/power_supply/BAT1/capacity)%."'
+alias temperature='sudo isw -r 16Q2EMS1'
+alias show-net='iwctl station wlan0 show'
+alias scan-net='iwctl station wlan0 get-networks'
+alias connect='iwctl station wlan0 connect'
+
+# --------- General Commands --------- #
+
+alias resh="source .bashrc" 
+#.zshrc"
+
+# ------------------------------------ #
+
