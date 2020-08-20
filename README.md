@@ -1,2 +1,2 @@
-# msi_archey
+# ARCHEY
 A guide to install Arch linux on MSI laptops :)
