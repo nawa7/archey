@@ -1,0 +1,24 @@
+http://woshub.com/how-to-repair-deleted-efi-partition-in-windows-7/
+
+partdisk
+list disk
+sel disk <num>
+list vol
+sel vol <num>
+assign letter=G
+exit
+G:
+mkdir EFI\Microsoft\Boot
+cd EFI\Microsoft\Boot
+xcopy /s C:\Windows\Boot\EFI\*.* G:\EFI\Microsoft\Boot
+bcdedit /createstore BCD
+bcdedit /store BCD  /create {bootmgr} /d “Windows Boot Manager”
+bcdedit /store BCD /create /d “Windows 10” /application osloader
+bcdedit /store BCD /set {bootmgr} default {your_guid}
+bcdedit /store BCD /set {bootmgr} path \EFI\Microsoft\Boot\bootmgfw.efi
+bcdedit /store BCD /set {bootmgr} displayorder {default}
+bcdedit /store BCD /set {default} device partition=c:
+bcdedit /store BCD /set {default} osdevice partition=c:
+bcdedit /store BCD /set {default} path \Windows\System32\winload.efi
+bcdedit /store BCD /set {default} systemroot \Windows
+exit
