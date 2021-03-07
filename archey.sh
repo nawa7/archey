@@ -30,7 +30,7 @@ pacstrap /mnt base base-devel linux linux-firmware efibootmgr intel-ucode mtools
 
 cp /var/lib/iwd/$WiFi".psk" /mnt/var/lib/iwd/
 
-genfstab -U /mnt > /mnt/fstab
+genfstab -U /mnt > /mnt/etc/fstab
 arch-chroot /mnt
 
 systemctl enable dhcpcd.service
